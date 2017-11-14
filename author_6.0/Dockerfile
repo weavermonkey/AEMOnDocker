@@ -11,7 +11,7 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 RUN yum localinstall jdk-8u151-linux-x64.rpm -y
 RUN java -jar aem6.0-author-p4502.jar -unpack
 
-RUN chkconfig --ad aem6
+RUN chkconfig --add aem6
 RUN yum install initscripts -y
 RUN yum update -y
 RUN yum clean all
