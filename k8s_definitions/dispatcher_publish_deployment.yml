@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: publish-dispatcher
+  labels:
+    app: publish-dispatcher
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: publish-dispatcher
+    spec:
+      containers:
+      - name: publish-container
+        image: img_name
+        ports:
+        - containerPort: 4503
+      - name: dispatcher-container
+        image: img_name
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: img_url

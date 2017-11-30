@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: author
+  labels:
+    app: author
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: author
+    spec:
+      containers:
+      - name: author-con-v2
+        image: img_url
+        ports:
+        - containerPort: 4502
+      imagePullSecrets:
+      - name: img_pull_secrets
